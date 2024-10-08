@@ -11,8 +11,6 @@ import Table from "./Table";
 Font.register({
 	family: 'Roboto',
 	src: RobotoFont,
-	// fontStyle: 'normal',
-	// fontWeight: 'normal'
 	// fonts: [
 	// 	{
 	// 		src: "./Roboto-Regular.ttf",
@@ -40,12 +38,6 @@ Font.register({
 // 	src: 'https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf',
 // });
 
-// Font.register({
-// 	family: 'Inter',
-// 	format: 'woff',
-// 	src: 'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_EeA.woff',
-// });
-
 // Create styles
 const styles = StyleSheet.create({
 	body: {
@@ -64,7 +56,7 @@ const styles = StyleSheet.create({
 		marginBottom: 40,
 	},
 	subtitle: {
-		// fontSize: 18,
+		fontSize: 18,
 		margin: 12,
 		// fontFamily: 'Roboto'
 	},
@@ -97,11 +89,13 @@ const styles = StyleSheet.create({
 		display: "flex",
 		flexDirection: 'row',
 		justifyContent: "space-between",
-		backgroundColor: '#cdcdcd'
+		fontSize: 14,
+		// backgroundColor: '#cdcdcd'
+		gap: 15
 	},
 	section: {
 		margin: 10,
-		padding: 10,
+		flex: 1
 	},
 	redText: {
 		color: "red"
@@ -218,13 +212,24 @@ const PDFDocument = () => {
 					y prosiguió su camino, sin llevar otro que aquel que su caballo quería,
 					creyendo que en aquello consistía la fuerza de las aventuras
 				</Text>
-				<Text break style={styles.title}>Flex</Text>
-				<View style={styles.flex}>
+				<Text break style={styles.title}>Two columns with debug mode</Text>
+				<View style={styles.flex} debug>
 					<View style={styles.section}>
-						<Text style={styles.redText}>Section #1</Text>
+						<Text style={styles.redText}>
+							Hechas, pues, estas prevenciones, no quiso aguardar más tiempo a poner
+							en efeto su pensamiento, apretándole a ello la falta que él pensaba que
+							hacía en el mundo su tardanza, según eran los agravios que pensaba
+							deshacer, tuertos que enderezar, sinrazones que emendar y abusos que
+							mejorar y deudas que satisfacer.
+						</Text>
 					</View>
 					<View style={styles.section}>
-						<Text>Section #2</Text>
+						<Text>
+							En lo de las armas blancas, pensaba limpiarlas de manera, en
+							teniendo lugar, que lo fuesen más que un arminio; y con esto se quietó18
+							y prosiguió su camino, sin llevar otro que aquel que su caballo quería,
+							creyendo que en aquello consistía la fuerza de las aventuras
+						</Text>
 					</View>
 				</View>
 				<Text break style={styles.title}>HTML</Text>
