@@ -1,4 +1,4 @@
-import {Document, Page, View, Text, StyleSheet, Font, Image} from "@react-pdf/renderer";
+import {Document, Page, View, Text, StyleSheet, Font, Image, Svg, Path} from "@react-pdf/renderer";
 import {Html} from "react-pdf-html";
 
 import Table from "./Table";
@@ -6,6 +6,7 @@ import Table from "./Table";
 import image1 from "../assets/images/quijote1.jpg"
 import image2 from "../assets/images/quijote2.png"
 import html from "../assets/html";
+import {getImageBlobFromUrl} from "../utils/images";
 
 Font.register({
 	family: 'Roboto',
@@ -106,6 +107,8 @@ const styles = StyleSheet.create({
 	}
 });
 
+const blobImage = getImageBlobFromUrl(image2)
+
 // Create Document Component
 const PDFDocument = () => {
 	return (
@@ -180,7 +183,7 @@ const PDFDocument = () => {
 				</Text>
 				<Image
 					style={styles.image}
-					src={image2}
+					src={blobImage}
 				/>
 				<Text style={styles.text}>
 					Hechas, pues, estas prevenciones, no quiso aguardar más tiempo a poner
@@ -232,6 +235,61 @@ const PDFDocument = () => {
 				<Html>{html}</Html>
 				<Text break style={styles.title}>Table</Text>
 				<Table/>
+				<Text style={styles.text}>
+					Hechas, pues, estas prevenciones, no quiso aguardar más tiempo a poner
+					en efeto su pensamiento, apretándole a ello la falta que él pensaba que
+					hacía en el mundo su tardanza, según eran los agravios que pensaba
+					deshacer, tuertos que enderezar, sinrazones que emendar y abusos que
+					mejorar y deudas que satisfacer. Y así, sin dar parte a persona alguna
+					de su intención y sin que nadie le viese, una mañana, antes del día, que
+					era uno de los calurosos del mes de Julio, se armó de todas sus armas,
+					subió sobre Rocinante, puesta su mal compuesta celada, embrazó su
+					adarga, tomó su lanza y por la puerta falsa de un corral salió al campo
+					con grandísimo contento y alborozo de ver con cuánta facilidad había
+					dado principio a su buen deseo. Mas apenas se vio en el campo cuando le
+					asaltó un pensamiento terrible, y tal, que por poco le hiciera dejar la
+					comenzada empresa; y fue que le vino a la memoria que no era armado
+					caballero, y que, conforme a ley de caballería, ni podía ni debía tomar
+					armas con ningún caballero; y puesto que lo fuera, había de llevar armas
+					blancas, como novel caballero, sin empresa en el escudo, hasta que por
+					su esfuerzo la ganase. Estos pensamientos le hicieron titubear en su
+					propósito; mas pudiendo más su locura que otra razón alguna, propuso de
+					hacerse armar caballero del primero que topase, a imitación de otros
+					muchos que así lo hicieron, según él había leído en los libros que tal
+					le tenían. En lo de las armas blancas, pensaba limpiarlas de manera, en
+					teniendo lugar, que lo fuesen más que un arminio; y con esto se quietó18
+					y prosiguió su camino, sin llevar otro que aquel que su caballo quería,
+					creyendo que en aquello consistía la fuerza de las aventuras
+				</Text>
+				<View style={styles.line}></View>
+				<Text style={styles.text}>
+					Con estas y semejantes razones perdía el pobre caballero el juicio, y
+					desvelábase por entenderlas, y desentrañarles el sentido, que no se lo
+					sacara, ni las entendiera el mismo Aristóteles, si resucitara para sólo
+					ello. No estaba muy bien con las heridas que don Belianis daba y
+					recibía, porque se imaginaba que por grandes maestros que le hubiesen
+					curado, no dejaría de tener el rostro y todo el cuerpo lleno de
+					cicatrices y señales; pero con todo alababa en su autor aquel acabar su
+					libro con la promesa de aquella inacabable aventura, y muchas veces le
+					vino deseo de tomar la pluma, y darle fin al pie de la letra como allí
+					se promete; y sin duda alguna lo hiciera, y aun saliera con ello, si
+					otros mayores y continuos pensamientos no se lo estorbaran. Tuvo muchas
+					veces competencia con el cura de su lugar (que era hombre docto graduado
+					en Sigüenza), sobre cuál había sido mejor caballero, Palmerín de
+					Inglaterra o Amadís de Gaula; mas maese Nicolás, barbero del mismo
+					pueblo, decía que ninguno llegaba al caballero del Febo, y que si alguno
+					se le podía comparar, era don Galaor, hermano de Amadís de Gaula, porque
+					tenía muy acomodada condición para todo; que no era caballero
+					melindroso, ni tan llorón como su hermano, y que en lo de la valentía no
+					le iba en zaga.
+				</Text>
+				<Text break style={styles.title}>SVG</Text>
+				<Svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
+					<Path
+						fill="#000"
+						d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"
+					/>
+				</Svg>
 				{/* Render page numbers on each pages by fixed and render props*/}
 				<Text style={styles.pageNumber} render={({pageNumber, totalPages}) => (
 					`${pageNumber} / ${totalPages}`
