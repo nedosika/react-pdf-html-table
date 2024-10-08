@@ -1,42 +1,39 @@
 import {Document, Page, View, Text, StyleSheet, Font, Image} from "@react-pdf/renderer";
-import RobotoFont from '../assets/fonts/Roboto-Regular.ttf';
-import image from "../assets/images/quijote1.jpg"
+import image1 from "../assets/images/quijote1.jpg"
 import image2 from "../assets/images/quijote2.png"
 import {Html} from "react-pdf-html";
 import html from "../assets/html";
 
-import {getImageBlobFromUrl} from "../utils/images";
 import Table from "./Table";
 
 Font.register({
 	family: 'Roboto',
-	src: RobotoFont,
-	// fonts: [
-	// 	{
-	// 		src: "./Roboto-Regular.ttf",
-	// 		fontWeight: 'normal'
-	// 	},
-	// 	// {
-	// 	// 	src: `./Roboto-Bold.ttf`,
-	// 	// 	fontWeight: 'bold'
-	// 	// },
-	// 	// {
-	// 	// 	src: `./Roboto-Italic.ttf`,
-	// 	// 	fontWeight: 'normal',
-	// 	// 	fontStyle: 'italic'
-	// 	// },
-	// 	// {
-	// 	// 	src: `./Roboto-BoldItalic.ttf`,
-	// 	// 	fontWeight: 'bold',
-	// 	// 	fontStyle: 'italic'
-	// 	// }
-	// ]
+	fonts: [
+		{
+			src: "./Roboto-Regular.ttf",
+			fontWeight: 'normal'
+		},
+		{
+			src: `./Roboto-Bold.ttf`,
+			fontWeight: 'bold'
+		},
+		{
+			src: `./Roboto-Italic.ttf`,
+			fontWeight: 'normal',
+			fontStyle: 'italic'
+		},
+		{
+			src: `./Roboto-BoldItalic.ttf`,
+			fontWeight: 'bold',
+			fontStyle: 'italic'
+		}
+	]
 })
 
-// Font.register({
-// 	family: 'Oswald',
-// 	src: 'https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf',
-// });
+Font.register({
+	family: 'Oswald',
+	src: 'https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf',
+});
 
 // Create styles
 const styles = StyleSheet.create({
@@ -48,7 +45,7 @@ const styles = StyleSheet.create({
 	title: {
 		fontSize: 24,
 		textAlign: 'center',
-	//	fontFamily: 'Oswald'
+		fontFamily: 'Oswald'
 	},
 	author: {
 		fontSize: 12,
@@ -58,7 +55,7 @@ const styles = StyleSheet.create({
 	subtitle: {
 		fontSize: 18,
 		margin: 12,
-		// fontFamily: 'Roboto'
+		fontFamily: 'Roboto'
 	},
 	text: {
 		margin: 12,
@@ -91,7 +88,9 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		fontSize: 14,
 		// backgroundColor: '#cdcdcd'
-		gap: 15
+		gap: 15,
+		padding: 10,
+		margin: 10
 	},
 	section: {
 		margin: 10,
@@ -105,9 +104,6 @@ const styles = StyleSheet.create({
 		margin: 12
 	}
 });
-
-const img1 = await getImageBlobFromUrl(image);
-const img2 = await getImageBlobFromUrl(image2);
 
 // Create Document Component
 const PDFDocument = () => {
@@ -129,8 +125,7 @@ const PDFDocument = () => {
 				<Text style={styles.author}>Miguel de Cervantes</Text>
 				<Image
 					style={styles.image}
-					source={img1}
-					cache={false}
+					source={image1}
 				/>
 				<Text style={styles.subtitle}>
 					Capítulo I: Que trata de la condición y ejercicio del famoso hidalgo D.
@@ -184,7 +179,7 @@ const PDFDocument = () => {
 				</Text>
 				<Image
 					style={styles.image}
-					src={img2}
+					src={image2}
 				/>
 				<Text style={styles.text}>
 					Hechas, pues, estas prevenciones, no quiso aguardar más tiempo a poner
