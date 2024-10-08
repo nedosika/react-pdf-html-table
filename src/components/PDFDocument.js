@@ -1,10 +1,11 @@
 import {Document, Page, View, Text, StyleSheet, Font, Image} from "@react-pdf/renderer";
-import image1 from "../assets/images/quijote1.jpg"
-import image2 from "../assets/images/quijote2.png"
 import {Html} from "react-pdf-html";
-import html from "../assets/html";
 
 import Table from "./Table";
+
+import image1 from "../assets/images/quijote1.jpg"
+import image2 from "../assets/images/quijote2.png"
+import html from "../assets/html";
 
 Font.register({
 	family: 'Roboto',
